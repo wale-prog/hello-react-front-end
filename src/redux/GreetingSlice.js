@@ -8,7 +8,7 @@ export const fetchGreeting = createAsyncThunk(
     const response = await fetch(apiUrl);
     const data = await response.json();
     return data;
-  }
+  },
 );
 
 const initialState = [];
@@ -17,12 +17,8 @@ const greetingSlice = createSlice({
   initialState,
   reducers: {},
   extraReducers: {
-    [fetchGreeting.fulfilled]: (state, action) => {
-      return action.payload;
-    }
-  }
+    [fetchGreeting.fulfilled]: (state, action) => action.payload,
+  },
 });
 
 export default greetingSlice.reducer;
-
-
